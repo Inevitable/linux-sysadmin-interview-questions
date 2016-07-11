@@ -129,18 +129,18 @@ A collection of linux sysadmin/devops interview questions. Feel free to contribu
 * Which Linux file types do you know? `regular files, directories, block file, pipe, character device files, symbolic links, socket files`
 * What is the difference between a process and a thread? And parent and child processes after a fork system call?
 * What is the difference between exec and fork?
-* What is "nohup" used for?
+* What is "nohup" used for? `Ignores hangup sig.  Will allow shell ops/scripts to run after session end/ssh disconnect`
 * What is the difference between these two commands?
  * ```myvar=hello```
  * ```export myvar=hello```
 * How many NTP servers would you configure in your local ntp.conf?
 * What does the column 'reach' mean in ```ntpq -p``` output?
 * You need to upgrade kernel at 100-1000 servers, how you would do this?
-* How can you get Host, Channel, ID, LUN of SCSI disk?
-* How can you limit process memory usage?
-* What is bash quick substitution/caret replace(^x^y)?
-* Do you know of any alternative shells? If so, have you used any?
-* What is a tarpipe (or, how would you go about copying everything, including hardlinks and special files, from one server to another)?
+* How can you get Host, Channel, ID, LUN of SCSI disk? `Typically 'cat /proc/scsi/scsi' or more preferrably you'll be running multipath and can query there.`
+* How can you limit process memory usage? `ulimit, setrlimit for processes which spawn no children, or the popular timeout script to cage process and forks by time or memory`
+* What is bash quick substitution/caret replace(^x^y)? `allows one to re-run last command replacing the first instance of x with y`
+* Do you know of any alternative shells? If so, have you used any? `zsh`
+* What is a tarpipe (or, how would you go about copying everything, including hardlinks and special files, from one server to another)? `Depends on the properties of the data to copy.  Millions of small files would call for a tarpipe to reduce fstat calls.  Most everything else is well served by parallel tarpipes`
 
 ####[[⬆]](#toc) <a name='hard'>Hard Linux Questions:</a>
 
@@ -153,7 +153,7 @@ A collection of linux sysadmin/devops interview questions. Feel free to contribu
 * What kind of keys are in ~/.ssh/authorized_keys and what it is this file used for?
 * I've added my public ssh key into authorized_keys but I'm still getting a password prompt, what can be wrong?
 * Did you ever create RPM's, DEB's or solaris pkg's?
-* What does ```:(){ :|:& };:``` do on your system?
+* What does ```:(){ :|:& };:``` do on your system? `Fork Bomb`
 * How do you catch a Linux signal on a script?
 * Can you catch a SIGKILL?
 * What's happening when the Linux kernel is starting the OOM killer and how does it choose which process to kill first?
