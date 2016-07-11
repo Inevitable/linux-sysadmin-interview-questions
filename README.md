@@ -140,7 +140,7 @@ A collection of linux sysadmin/devops interview questions. Feel free to contribu
 * How can you limit process memory usage? `ulimit, setrlimit for processes which spawn no children, or the popular timeout script to cage process and forks by time or memory`
 * What is bash quick substitution/caret replace(^x^y)? `allows one to re-run last command replacing the first instance of x with y`
 * Do you know of any alternative shells? If so, have you used any? `zsh`
-* What is a tarpipe (or, how would you go about copying everything, including hardlinks and special files, from one server to another)? `Depends on the properties of the data to copy.  Millions of small files would call for a tarpipe to reduce fstat calls.  Most everything else is well served by parallel tarpipes`
+* What is a tarpipe (or, how would you go about copying everything, including hardlinks and special files, from one server to another)? `Depends on the properties of the data to copy.  Millions of small files would call for multiple instances of tarpipes to reduce fstat calls.  Most everything else is well served by rsync`
 
 ####[[⬆]](#toc) <a name='hard'>Hard Linux Questions:</a>
 
